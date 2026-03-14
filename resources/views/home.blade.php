@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
     <div class="container">
@@ -27,22 +28,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
 
         <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-            <a class="nav-link fw-semibold active" href="#">Home</a>
-            </li>
-            <li class="nav-item">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold active" href="#hero">Home</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link fw-semibold" href="#categories">Categories</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link fw-semibold" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link fw-semibold" href="#">Contact</a>
-            </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="#contact">Contact</a>
+          </li>
         </ul>
 
         <div class="d-flex gap-2">
-            <a href="#" class="btn btn-outline-secondary rounded-pill px-4">Register</a>
+            <a href="#" class="btn btn-outline-secondary rounded-pill px-4">Guest mode</a>
             <a href="#" class="btn btn-primary rounded-pill px-4">Login</a>
         </div>
 
@@ -50,7 +51,7 @@
         </div>
         </nav>
     </div>
-    <section class="hero py-5">
+    <section class="hero py-5" id="hero">
   <div class="container">
   <div class="row align-items-center py-5">
 
@@ -70,7 +71,7 @@
           Report Item
         </a>
 
-        <a href="#" class="text-dark text-decoration-none">
+        <a href="#" class="btn btn-outline-secondary rounded-pill px-4 py-2">
           Browse Lost Items
         </a>
       </div>
@@ -119,6 +120,13 @@
         <div class="company-item">
           <img src="{{ asset('img/pa.png') }}" height="50" class="mb-2">
           <div>Politeknik APP Jakarta</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg">
+        <div class="company-item">
+          <img src="{{ asset('img/stp.png') }}" height="50" class="mb-2">
+          <div>Sekolah tinggi perikanan</div>
         </div>
       </div>
 
@@ -359,10 +367,21 @@ Send us a message and our team will assist you.
 
     <p class="mb-2">Follow us :</p>
 
-    <span class="social-icon">🌐</span>
-    <span class="social-icon">📘</span>
-    <span class="social-icon">📸</span>
-    <span class="social-icon">🐦</span>
+    <span class="social-icon">
+      <a class="social-btn" href="#"><i class='bx bx-link'></i></a>
+    </span>
+
+    <span class="social-icon">
+      <a class="social-btn" href="#"><i class='bx bxl-linkedin-square'></i></a>
+    </span>
+
+    <span class="social-icon">
+      <a class="social-btn" href="#"><i class='bx bxl-instagram-alt'></i></a>
+    </span>
+
+    <span class="social-icon">
+      <a class="social-btn" href="#"><i class='bx bxl-discord-alt'></i></a>
+    </span>
 
     </div>
 
@@ -439,9 +458,37 @@ Send us a message and our team will assist you.
       </div>
 
       </footer>
+      <script>
+          const sections = document.querySelectorAll("section");
+          const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+          window.addEventListener("scroll", () => {
+            let current = "";
+
+            sections.forEach(section => {
+              const sectionTop = section.offsetTop - 120;
+              const sectionHeight = section.clientHeight;
+
+              if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute("id");
+              }
+            });
+
+            navLinks.forEach(link => {
+              link.classList.remove("active");
+              link.classList.remove("fw-bold");
+
+              if (link.getAttribute("href") === "#" + current) {
+                link.classList.add("active");
+                link.classList.add("fw-bold");
+              }
+            });
+          });
+      </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </body>
 </html>
