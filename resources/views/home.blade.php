@@ -67,11 +67,11 @@
       </p>
 
       <div class="mt-4 d-flex align-items-center gap-3">
-        <a href="#" class="btn btn-primary rounded-pill px-4 py-2">
+        <a href="/report" class="btn btn-primary rounded-pill px-4 py-2">
           Report Item
         </a>
 
-        <a href="#" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+        <a href="/items" class="btn btn-outline-secondary rounded-pill px-4 py-2">
           Browse Lost Items
         </a>
       </div>

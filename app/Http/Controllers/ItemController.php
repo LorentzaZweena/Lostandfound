@@ -21,7 +21,16 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
-        Item::create($request->all());
+        $validated = $request->validate([
+        'title' => 'required',
+        'description' => 'required',
+        'category' => 'required',
+        'location' => 'required',
+        'status' => 'required',
+        'contact_email' => 'required|email'
+    ]);
+
+        Item::create($validated);
 
         return redirect('/items')->with('success','Item reported!');
     }
