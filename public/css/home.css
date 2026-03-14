@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary{
+    background: #355872;
+    border:none;
+}
+
+.hero{
+    padding-top:80px;
+    padding-bottom:80px;
+}
+
+.hero h1{
+    line-height:1.2;
+}
+
+.companies{
+    background: linear-gradient(90deg,#355872,#7AAACE);
+}
+
+.companies img{
+    filter: brightness(0) invert(1);
+}
+
+.categories{
+    background:#f8f9fa;
+}
+
+.category-card{
+    background:white;
+    padding:18px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:500;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.category-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.text-primaryy{
+    color:#355872;
+}
+
+.services {
+    background: #f8f9fc;
+}
+
+.service-box {
+    background: white;
+    border-radius: 15px;
+    transition: 0.3s;
+    height: 100%;
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.service-box .icon {
+    font-size: 40px;
+}
+
+.contact {
+background: #f9fafb;
+}
+
+.contact-card {
+background: linear-gradient(135deg,#355872);
+}
+
+.contact-card .social-icon {
+margin-right:8px;
+font-size:18px;
+}
+
+.footer {
+background:#355872;
+}
+
+.footer ul li {
+margin-bottom:6px;
+color:#d1d1d1;
+}
+
+.footer input {
+border-radius:20px;
+}
+
+.footer button {
+border-radius:20px;
+}
