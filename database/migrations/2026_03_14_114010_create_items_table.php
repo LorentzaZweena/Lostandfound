@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('category');
             $table->string('location');
-            $table->string('status');
+            $table->string('status')->default('lost');
             $table->string('image')->nullable();
             $table->string('contact_email');
             $table->timestamps();

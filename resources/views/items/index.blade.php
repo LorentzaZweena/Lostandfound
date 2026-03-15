@@ -11,16 +11,130 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
-  <body>
+  <body style="background:#f6f7fb; font-family:'Poppins', sans-serif;">
     <div class="container">
-        @foreach($items as $item)
-        <div class="card">
-            <h5>{{ $item->title }}</h5>
-            <p>{{ $item->description }}</p>
-            <p>{{ $item->location }}</p>
+        <nav class="navbar navbar-expand-lg bg-white py-4 fixed-top">
+        <div class="container">
+
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+            <img src="{{ asset('img/briefcase-alt-solid-24.png') }}" width="30" class="me-2">
+            Lost&found
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="/">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="/">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="/">Contact</a>
+          </li>
+        </ul>
+
+        <div class="d-flex gap-2">
+            <a href="#" class="btn btn-outline-secondary rounded-pill px-4">Guest mode</a>
+            <a href="#" class="btn btn-primary rounded-pill px-4">Login</a>
         </div>
-        @endforeach
+
+        </div>
+        </div>
+        </nav>
     </div>
+    <div class="container mt-5 pt-5">
+    <div class="row g-4">
+
+        @foreach($items as $item)
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card item-card border-0 shadow-sm h-100 text-center">
+
+                <div class="card-body">
+                    <div class="icon-circle mb-3
+                        @if($item->category == 'electronics') bg-primary
+                        @elseif($item->category == 'documents') bg-success
+                        @elseif($item->category == 'accessories') bg-warning
+                        @else bg-secondary
+                        @endif
+                    ">
+                        @if($item->category == 'electronics')
+                            <i class='bx bx-laptop'></i>
+                        @elseif($item->category == 'documents')
+                            <i class='bx bx-file'></i>
+                        @elseif($item->category == 'accessories')
+                            <i class='bx bx-headphone'></i>
+                        @elseif($item->category == 'makeup')
+                            <i class='bx bx-lipstick'></i>
+                        @elseif($item->category == 'keys')
+                            <i class='bx bx-key'></i>
+                        @elseif($item->category == 'bags')
+                            <i class='bx bx-briefcase'></i>
+                        @else
+                            <i class='bx bx-package'></i>
+                        @endif
+                    </div>
+
+                    <h6 class="fw-semibold mb-3">
+                        {{ $item->title }}
+                    </h6>
+
+                    <div class="info-row">
+                        <i class='bx bx-user'></i>
+
+                        <span>
+                        @if($item->user)
+                            {{ $item->user->name }}
+                        @else
+                            Guest ({{ $item->id }})
+                        @endif
+                        </span>
+                    </div>
+
+                    <div class="info-row">
+                        <i class='bx bx-map'></i>
+                        <span>{{ $item->location }}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <i class='bx bx-calendar'></i>
+                        <span>{{ $item->created_at->format('d M Y') }}</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <small class="text-muted">Status</small>
+
+                        @if($item->status == 'found')
+                            <span class="badge bg-success">Found</span>
+                        @elseif($item->status == 'lost')
+                            <span class="badge bg-danger">Lost</span>
+                        @else
+                            <span class="badge bg-warning text-dark">Pending</span>
+                        @endif
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        @endforeach
+
+    </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

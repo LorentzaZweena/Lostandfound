@@ -59,6 +59,7 @@
                             <option>Bags</option>
                             <option>Keys</option>
                             <option>Documents</option>
+                            <option>Makeup</option>
                             <option>Others</option>
                         </select>
                     </div>

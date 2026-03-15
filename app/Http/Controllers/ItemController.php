@@ -30,12 +30,12 @@ class ItemController extends Controller
         'image' => 'nullable|image|max:2048'
     ]);
 
+    $data['status'] = 'lost';
+
     if ($request->hasFile('image')) {
         $data['image'] = $request->file('image')->store('items', 'public');
     }
 
         Item::create($data);
-
-        return redirect('/items')->with('success','Item reported!');
     }
 }

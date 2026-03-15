@@ -71,7 +71,7 @@
           Report Item
         </a>
 
-        <a href="/items" class="btn btn-outline-secondary rounded-pill px-4 py-2">
+        <a href="/items" class="btn btn-outline-secondary rounded-pill px-4 py-2" target="_blank">
           Browse Lost Items
         </a>
       </div>
