@@ -52,88 +52,82 @@
         </nav>
     </div>
     <div class="container mt-5 pt-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4 mt-3 pt-3">
+        <h5 class="fw-bold">Reports</h5>
+
+        <a href="/report" class="btn btn-primary rounded-pill px-4">
+            Add New Report
+        </a>
+    </div>
+
     <div class="row g-4">
 
         @foreach($items as $item)
 
         <div class="col-md-6 col-lg-3">
-            <div class="card item-card border-0 shadow-sm h-100 text-center">
 
-                <div class="card-body">
-                    <div class="icon-circle mb-3
-                        @if($item->category == 'electronics') bg-primary
-                        @elseif($item->category == 'documents') bg-success
-                        @elseif($item->category == 'accessories') bg-warning
-                        @else bg-secondary
-                        @endif
-                    ">
-                        @if($item->category == 'electronics')
-                            <i class='bx bx-laptop'></i>
-                        @elseif($item->category == 'documents')
-                            <i class='bx bx-file'></i>
-                        @elseif($item->category == 'accessories')
-                            <i class='bx bx-headphone'></i>
-                        @elseif($item->category == 'makeup')
-                            <i class='bx bx-lipstick'></i>
-                        @elseif($item->category == 'keys')
-                            <i class='bx bx-key'></i>
-                        @elseif($item->category == 'bags')
-                            <i class='bx bx-briefcase'></i>
-                        @else
-                            <i class='bx bx-package'></i>
-                        @endif
-                    </div>
+            <a href="/items/{{ $item->id }}" class="text-decoration-none text-dark">
 
-                    <h6 class="fw-semibold mb-3">
-                        {{ $item->title }}
-                    </h6>
+                <div class="card report-card shadow-sm h-100">
 
-                    <div class="info-row">
-                        <i class='bx bx-user'></i>
+                    <div class="card-body text-center">
 
-                        <span>
-                        @if($item->user)
-                            {{ $item->user->name }}
-                        @else
-                            Guest ({{ $item->id }})
-                        @endif
-                        </span>
-                    </div>
+                        <img src="{{ asset('img/pp.jpg') }}"
+                             class="profile-img mb-2">
 
-                    <div class="info-row">
-                        <i class='bx bx-map'></i>
-                        <span>{{ $item->location }}</span>
-                    </div>
+                        <h6 class="fw-semibold mb-1">
+                            @if($item->user)
+                                {{ $item->user->name }}
+                            @else
+                                Guest
+                            @endif
+                        </h6>
 
-                    <div class="info-row">
-                        <i class='bx bx-calendar'></i>
-                        <span>{{ $item->created_at->format('d M Y') }}</span>
-                    </div>
+                        <small class="text-muted d-block mb-3">
+                            {{ $item->title }}
+                        </small>
 
-                    <hr>
+                        <hr>
 
-                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="info-row">
+                            <i class='bx bx-map'></i>
+                            <span>{{ $item->location }}</span>
+                        </div>
 
-                        <small class="text-muted">Status</small>
+                        <div class="info-row">
+                            <i class='bx bx-envelope'></i>
+                            <span>{{ $item->contact_email }}</span>
+                        </div>
 
-                        @if($item->status == 'found')
-                            <span class="badge bg-success">Found</span>
-                        @elseif($item->status == 'lost')
-                            <span class="badge bg-danger">Lost</span>
-                        @else
-                            <span class="badge bg-warning text-dark">Pending</span>
-                        @endif
+                        <div class="info-row">
+                            <i class='bx bx-image'></i>
+                            <span>
+                                @if($item->image)
+                                    See image
+                                @else
+                                    No Image
+                                @endif
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <i class='bx bx-category'></i>
+                            <span>{{ $item->category }}</span>
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
+            </a>
+
         </div>
 
         @endforeach
 
     </div>
+
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

@@ -22,20 +22,20 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-        'title' => 'required',
-        'category' => 'required',
-        'location' => 'required',
-        'description' => 'required',
-        'contact_email' => 'required|email',
-        'image' => 'nullable|image|max:2048'
-    ]);
+            'title' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+            'location' => 'required',
+            'contact_email' => 'required|email',
+            'image' => 'nullable|image'
+        ]);
 
-    $data['status'] = 'lost';
-
-    if ($request->hasFile('image')) {
-        $data['image'] = $request->file('image')->store('items', 'public');
-    }
+        if($request->hasFile('image')){
+            $data['image'] = $request->file('image')->store('items','public');
+        }
 
         Item::create($data);
+
+        return redirect('/report')->with('success', 'Your report has been submitted successfully.');
     }
 }
