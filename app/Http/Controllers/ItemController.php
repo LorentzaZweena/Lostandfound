@@ -21,16 +21,20 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $data = $request->validate([
         'title' => 'required',
-        'description' => 'required',
         'category' => 'required',
         'location' => 'required',
-        'status' => 'required',
-        'contact_email' => 'required|email'
+        'description' => 'required',
+        'contact_email' => 'required|email',
+        'image' => 'nullable|image|max:2048'
     ]);
 
-        Item::create($validated);
+    if ($request->hasFile('image')) {
+        $data['image'] = $request->file('image')->store('items', 'public');
+    }
+
+        Item::create($data);
 
         return redirect('/items')->with('success','Item reported!');
     }

@@ -67,7 +67,7 @@
       </p>
 
       <div class="mt-4 d-flex align-items-center gap-3">
-        <a href="/report" class="btn btn-primary rounded-pill px-4 py-2">
+        <a href="/report" class="btn btn-primary rounded-pill px-4 py-2" target="_blank">
           Report Item
         </a>
 
