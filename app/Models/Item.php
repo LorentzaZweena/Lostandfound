@@ -12,10 +12,13 @@ class Item extends Model
         'description',
         'category',
         'location',
-        'status',
         'contact_email',
-        'image'
+        'image',
+        'user_id'
     ];
 
-    use HasFactory;
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

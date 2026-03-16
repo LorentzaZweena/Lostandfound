@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Item;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
+    private function getItems()
+    {
+        return Item::with('user')->latest()->get();
+    }
+
+    public function home()
+    {
+        return view('home', ['items' => $this->getItems()]);
+    }
+
     public function index()
     {
-        $items = Item::latest()->get();
-        return view('items.index', compact('items'));
+        return view('items.index', ['items' => $this->getItems()]);
     }
 
     public function create()
@@ -33,6 +41,8 @@ class ItemController extends Controller
         if($request->hasFile('image')){
             $data['image'] = $request->file('image')->store('items','public');
         }
+
+        $data['user_id'] = auth()->id();
 
         Item::create($data);
 

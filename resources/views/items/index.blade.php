@@ -43,8 +43,24 @@
         </ul>
 
         <div class="d-flex gap-2">
-            {{-- <a href="#" class="btn btn-outline-secondary rounded-pill px-4">Guest mode</a> --}}
-            <a href="#" class="btn btn-primary rounded-pill px-4">Login</a>
+            @guest
+                <a href="{{ route('login') }}" class="btn btn-primary rounded-pill px-4">
+                    Login
+                </a>
+            @endguest
+
+            @auth
+                <a href="/dashboard" class="btn btn-primary rounded-pill px-4">
+                    Profile
+                </a>
+
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="btn btn-danger rounded-pill px-4">
+                        Logout
+                    </button>
+                </form>
+            @endauth
         </div>
 
         </div>
@@ -66,8 +82,7 @@
         @foreach($items as $item)
 
         <div class="col-md-6 col-lg-3">
-
-            <a href="/items/{{ $item->id }}" class="text-decoration-none text-dark">
+            <a href="{{ auth()->check() ? url('/items/'.$item->id) : route('login') }}" class="text-decoration-none text-dark">
 
                 <div class="card report-card shadow-sm h-100">
 

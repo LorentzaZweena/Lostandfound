@@ -43,8 +43,24 @@
         </ul>
 
         <div class="d-flex gap-2">
-            {{-- <a href="#" class="btn btn-outline-secondary rounded-pill px-4">Guest mode</a> --}}
-            <a href="#" class="btn btn-primary rounded-pill px-4">Login</a>
+            @guest
+                <a href="{{ route('login') }}" class="btn btn-primary rounded-pill px-4">
+                    Login
+                </a>
+            @endguest
+
+            @auth
+                <a href="/dashboard" class="btn btn-primary rounded-pill px-4">
+                    Profile
+                </a>
+
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="btn btn-danger rounded-pill px-4">
+                        Logout
+                    </button>
+                </form>
+            @endauth
         </div>
 
         </div>
