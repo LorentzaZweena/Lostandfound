@@ -43,7 +43,7 @@
         </ul>
 
         <div class="d-flex gap-2">
-            <a href="#" class="btn btn-outline-secondary rounded-pill px-4">Guest mode</a>
+            {{-- <a href="#" class="btn btn-outline-secondary rounded-pill px-4">Guest mode</a> --}}
             <a href="#" class="btn btn-primary rounded-pill px-4">Login</a>
         </div>
 
