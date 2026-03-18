@@ -7,9 +7,65 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/item-detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 </head>
 
 <body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-white py-4 fixed-top">
+        <div class="container">
+
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="/">
+        <img src="{{ asset('img/briefcase-alt-solid-24.png') }}" width="30" class="me-2">
+        Lost&found
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="/items">Items</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="#categories">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold" href="#contact">Contact</a>
+          </li>
+        </ul>
+
+        <div class="d-flex gap-2">
+            @guest
+                <a href="{{ route('login') }}" class="btn btn-primary rounded-pill px-4">
+                    Login
+                </a>
+            @endguest
+
+            @auth
+                <a href="/dashboard" class="btn btn-primary rounded-pill px-4">
+                    Profile
+                </a>
+
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button class="btn btn-danger rounded-pill px-4">
+                        Logout
+                    </button>
+                </form>
+            @endauth
+        </div>
+
+        </div>
+        </div>
+        </nav>
+    </div>
 
 <div class="container py-5 mt-5">
     <div class="card-custom shadow-sm">
