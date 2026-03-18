@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Item;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,11 +20,11 @@ class ItemFactory extends Factory
     {
 
         $images = [
-            'items/img/bag.jpg',
-            'items/img/files.jpg',
-            'items/img/key.jpg',
-            'items/img/makeup.jpg',
-            'items/img/phone.jpg',
+            'img/bag.jpg',
+            'img/files.jpg',
+            'img/key.jpg',
+            'img/makeup.jpg',
+            'img/phone.jpg',
         ];
 
         return [
@@ -31,9 +32,10 @@ class ItemFactory extends Factory
             'description' => $this->faker->paragraph(),
             'category' => $this->faker->randomElement(['Electronics', 'Clothing', 'Accessories', 'Documents', 'Other']),
             'location' => $this->faker->city(),
-            'status' => $this->faker->randomElement(['lost', 'found']),
+            'status' => $this->faker->randomElement(['lost', 'founded']),
             'contact_email' => $this->faker->safeEmail(),
             'image' => $this->faker->randomElement($images),
+            'user_id' => User::inRandomOrder()->first()->id ?? User::factory()
         ];
     }
 }
