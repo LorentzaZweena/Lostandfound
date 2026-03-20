@@ -50,7 +50,7 @@
             @endguest
 
             @auth
-                <a href="/dashboard" class="btn btn-primary rounded-pill px-4">
+                <a href="/profile" class="btn btn-primary rounded-pill px-4">
                     Profile
                 </a>
 

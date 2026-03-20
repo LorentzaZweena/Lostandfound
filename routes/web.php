@@ -18,12 +18,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/items/{id}', [ItemController::class,'destroy']);
 });
 
-Route::middleware('auth')->group(function () {
-
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::get('/profile', function () {
+    return view('profile.index');
+})->middleware('auth');
 
 Route::get('/items/{id}', function ($id) {
     $item = Item::with('user')->findOrFail($id);

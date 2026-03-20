@@ -1,0 +1,31 @@
+body {
+    background: #f6f7fb;
+    font-family: 'Poppins', sans-serif;
+}
+
+.profile-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.profile-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.upload-btn {
+    border: 1px solid #ddd;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #f9f9f9;
+    font-size: 14px;
+}
+
+.info-box {
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 20px;
+}
