@@ -22,6 +22,8 @@ Route::get('/profile', function () {
     return view('profile.index');
 })->middleware('auth');
 
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+
 Route::get('/items/{id}', function ($id) {
     $item = Item::with('user')->findOrFail($id);
     return view('items.item-detail', compact('item'));

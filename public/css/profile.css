@@ -1,31 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
-    background: #f6f7fb;
+    background: #f4f6fb;
     font-family: 'Poppins', sans-serif;
 }
 
-.profile-card {
-    background: #fff;
+.sidebar {
+    width: 80px;
+    height: 100vh;
+    position: fixed;
+    background: white;
     border-radius: 20px;
-    padding: 30px;
+    padding-top: 20px;
+}
+
+.sidebar i {
+    font-size: 22px;
+    margin: 20px;
+    color: #888;
+}
+
+.main {
+    margin-left: 100px;
+}
+
+.card-custom {
+    border-radius: 20px;
+    padding: 20px;
 }
 
 .profile-img {
     width: 90px;
     height: 90px;
-    object-fit: cover;
     border-radius: 50%;
+    object-fit: cover;
 }
 
-.upload-btn {
-    border: 1px solid #ddd;
-    padding: 6px 14px;
+.stat-box {
     border-radius: 20px;
-    background: #f9f9f9;
-    font-size: 14px;
+    padding: 20px;
+    background: white;
 }
 
-.info-box {
-    border: 1px solid #eee;
-    border-radius: 15px;
-    padding: 20px;
+.badge-lost {
+    background: #ffe5e5;
+    color: #d32f2f;
+}
+
+.badge-found {
+    background: #e6f4ea;
+    color: #2e7d32;
 }

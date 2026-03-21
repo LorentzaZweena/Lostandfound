@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -57,4 +58,15 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+        public function index()
+        {
+            $user = auth()->user();
+
+            $totalReports = $user->items()->count();
+            $lost = $user->items()->where('status', 'lost')->count();
+            $found = $user->items()->where('status', 'found')->count();
+
+            return view('profile.index', compact('user', 'totalReports', 'lost', 'found'));
+        }
 }

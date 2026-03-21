@@ -32,7 +32,7 @@ class ItemFactory extends Factory
             'description' => $this->faker->paragraph(),
             'category' => $this->faker->randomElement(['Electronics', 'Clothing', 'Accessories', 'Documents', 'Other']),
             'location' => $this->faker->city(),
-            'status' => $this->faker->randomElement(['lost', 'founded']),
+            'status' => $this->faker->randomElement(['lost', 'found']),
             'contact_email' => $this->faker->safeEmail(),
             'image' => $this->faker->randomElement($images),
             'user_id' => User::inRandomOrder()->first()->id ?? User::factory()
