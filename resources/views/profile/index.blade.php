@@ -10,10 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-<style>
-
-</style>
 </head>
 
 <body>
@@ -41,14 +37,11 @@
                 <hr>
                 <p class="mb-1"><strong>Email:</strong></p>
                 <small>{{ $user->email }}</small>
-
             </div>
         </div>
 
         <div class="col-md-8">
-
             <div class="row g-3 mb-3">
-
                 <div class="col-md-4">
                     <div class="stat-box shadow-sm">
                         <h3>{{ $totalReports }}</h3>
@@ -72,9 +65,7 @@
 
             </div>
             <div class="card-custom bg-white shadow-sm">
-
                 <h6 class="fw-bold mb-3">Your Reports</h6>
-
                 @foreach(auth()->user()->items as $item)
                 <div class="d-flex justify-content-between align-items-center mb-3">
 
@@ -86,16 +77,11 @@
                     <span class="badge {{ $item->status == 'lost' ? 'badge-lost' : 'badge-found' }}">
                         {{ ucfirst($item->status) }}
                     </span>
-
                 </div>
                 @endforeach
-
             </div>
-
         </div>
-
     </div>
-
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
