@@ -31,24 +31,20 @@
             <div class="card-custom bg-white shadow-sm text-center">
 
                 <img src="{{ $user->profile_photo ? asset($user->profile_photo) : asset('img/pp.jpg') }}" class="profile-img mb-3">
-
                 <h5 class="fw-bold">{{ $user->name }}</h5>
-
                 <span class="badge bg-success mb-3">Active User</span>
-
-                <a href="/report" class="btn btn-primary rounded-pill px-4">
-                    Add New Report
-                </a>
-
+                <div class="">
+                    <a href="/report" class="btn btn-primary rounded-pill px-4">
+                        Add New Report
+                    </a>
+                </div>
                 <hr>
-
                 <p class="mb-1"><strong>Email:</strong></p>
                 <small>{{ $user->email }}</small>
 
             </div>
         </div>
 
-        <!-- STATS -->
         <div class="col-md-8">
 
             <div class="row g-3 mb-3">
@@ -75,8 +71,6 @@
                 </div>
 
             </div>
-
-            <!-- REPORT LIST -->
             <div class="card-custom bg-white shadow-sm">
 
                 <h6 class="fw-bold mb-3">Your Reports</h6>

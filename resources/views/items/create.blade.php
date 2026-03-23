@@ -106,9 +106,10 @@
             icon: 'success',
             title: 'Report Submitted!',
             text: '{{ session('success') }}',
+            url: '/items',
             confirmButtonColor: '#355872'
         });
         </script>
-        @endif
+    @endif
   </body>
 </html>
