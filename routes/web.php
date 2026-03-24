@@ -10,8 +10,9 @@ Route::get('/items', [ItemController::class,'index']);
 Route::get('/report', [ItemController::class,'create']);
 Route::post('/report', [ItemController::class,'store']);
 
+Route::get('/items/{item}', [ItemController::class,'show']);
+
 Route::middleware('auth')->group(function () {
-    Route::get('/items/{item}', [ItemController::class,'show']);
     Route::put('/items/{item}', [ItemController::class,'update']);
     Route::delete('/items/{item}', [ItemController::class,'destroy']);
 });
@@ -21,10 +22,5 @@ Route::get('/profile', function () {
 })->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
-
-// Route::get('/items/{id}', function ($id) {
-//     $item = Item::with('user')->findOrFail($id);
-//     return view('items.item-detail', compact('item'));
-// })->middleware('auth');
 
 require __DIR__.'/auth.php';

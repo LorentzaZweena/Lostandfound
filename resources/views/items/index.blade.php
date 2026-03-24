@@ -78,19 +78,12 @@
     </div>
 
     <div class="row g-4">
-
         @foreach($items as $item)
-
         <div class="col-md-6 col-lg-3">
-            <a href="{{ auth()->check() ? url('/items/'.$item->id) : route('login') }}" class="text-decoration-none text-dark">
-
+            <a href="{{ url('/items/'.$item->id) }}" class="text-decoration-none text-dark">
                 <div class="card report-card shadow-sm h-100">
-
                     <div class="card-body text-center">
-
-                        <img src="{{ asset('img/pp.jpg') }}"
-                             class="profile-img mb-2">
-
+                        <img src="{{ asset('img/pp.jpg') }}" class="profile-img mb-2">
                         <h6 class="fw-semibold mb-1">
                             @if($item->user)
                                 {{ $item->user->name }}
@@ -102,9 +95,7 @@
                         <small class="text-muted d-block mb-3">
                             {{ $item->title }}
                         </small>
-
                         <hr>
-
                         <div class="info-row">
                             <i class='bx bx-map'></i>
                             <span>{{ $item->location }}</span>
@@ -130,19 +121,12 @@
                             <i class='bx bx-category'></i>
                             <span>{{ $item->category }}</span>
                         </div>
-
                     </div>
-
                 </div>
-
             </a>
-
         </div>
-
         @endforeach
-
     </div>
-
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
