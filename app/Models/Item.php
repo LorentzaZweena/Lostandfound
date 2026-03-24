@@ -14,6 +14,7 @@ class Item extends Model
         'category',
         'location',
         'contact_email',
+        'status',
         'image',
         'user_id'
     ];

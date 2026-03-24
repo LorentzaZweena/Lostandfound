@@ -70,6 +70,15 @@
                     </div>
 
                     <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <select name="status" class="form-select">
+                            <option value="" disabled selected>Select status</option>
+                            <option value="lost">Lost</option>
+                            <option value="found">Found</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
                         <label class="form-label">Description</label>
                         <textarea name="description" class="form-control" rows="3" placeholder="Describe the item..."></textarea>
                     </div>
@@ -106,8 +115,9 @@
             icon: 'success',
             title: 'Report Submitted!',
             text: '{{ session('success') }}',
-            url: '/items',
             confirmButtonColor: '#355872'
+        }).then(() => {
+            window.location.href = '/items';
         });
         </script>
     @endif

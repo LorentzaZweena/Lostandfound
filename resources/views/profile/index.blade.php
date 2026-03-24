@@ -65,10 +65,27 @@
 
             </div>
             <div class="card-custom bg-white shadow-sm">
-                <h6 class="fw-bold mb-3">Your Reports</h6>
-                @foreach(auth()->user()->items as $item)
-                <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+                    <h6 class="fw-bold mb-0">Your Reports</h6>
+                    <div class="d-flex gap-4">
+                        <a href="{{ url('/profile') }}"
+                        class="filter-tab {{ !$status ? 'active-tab' : '' }}">
+                            All
+                        </a>
 
+                        <a href="{{ url('/profile?status=lost') }}"
+                        class="filter-tab {{ $status == 'lost' ? 'active-tab' : '' }}">
+                            Lost
+                        </a>
+
+                        <a href="{{ url('/profile?status=found') }}"
+                        class="filter-tab {{ $status == 'found' ? 'active-tab' : '' }}">
+                            Found
+                        </a>
+                    </div>
+                </div>
+                @forelse($items as $item)
+                <div class="d-flex justify-content-between align-items-center mb-3" data-bs-toggle="modal" data-bs-target="#itemModal{{ $item->id }}" style="cursor:pointer;">
                     <div>
                         <strong>{{ $item->title }}</strong><br>
                         <small class="text-muted">{{ $item->created_at->format('d M Y') }}</small>
@@ -78,7 +95,75 @@
                         {{ ucfirst($item->status) }}
                     </span>
                 </div>
-                @endforeach
+                <div class="modal fade" id="itemModal{{ $item->id }}" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Edit Report</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <div class="modal-body">
+                                <form method="POST" action="/items/{{ $item->id }}" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="mb-2">
+                                        <label>Title</label>
+                                        <input type="text" name="title" class="form-control" value="{{ $item->title }}">
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label>Description</label>
+                                        <textarea name="description" class="form-control">{{ $item->description }}</textarea>
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label>Category</label>
+                                        <input type="text" name="category" class="form-control" value="{{ $item->category }}">
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label>Location</label>
+                                        <input type="text" name="location" class="form-control" value="{{ $item->location }}">
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label>Contact Email</label>
+                                        <input type="email" name="contact_email" class="form-control" value="{{ $item->contact_email }}">
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label>Status</label>
+                                        <select name="status" class="form-control">
+                                            <option value="lost" {{ $item->status == 'lost' ? 'selected' : '' }}>Lost</option>
+                                            <option value="found" {{ $item->status == 'found' ? 'selected' : '' }}>Found</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label>Image</label>
+                                        <input type="file" name="image" class="form-control">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary w-100 mb-2">
+                                        Update Report
+                                    </button>
+                                </form>
+                                <form method="POST" action="/items/{{ $item->id }}">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button class="btn btn-danger w-100">
+                                        Delete Report
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @empty
+                    <p class="text-muted">No reports found.</p>
+                @endforelse
             </div>
         </div>
     </div>

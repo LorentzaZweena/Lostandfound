@@ -59,14 +59,23 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 
-        public function index()
+        public function index(Request $request)
         {
             $user = auth()->user();
+            $status = $request->query('status');
+            $query = $user->items();
 
+            if ($status) {
+                $query->where('status', $status);
+            }
+
+            $items = $query->latest()->get();
             $totalReports = $user->items()->count();
             $lost = $user->items()->where('status', 'lost')->count();
             $found = $user->items()->where('status', 'found')->count();
 
-            return view('profile.index', compact('user', 'totalReports', 'lost', 'found'));
+            return view('profile.index', compact(
+                'user', 'items', 'totalReports', 'lost', 'found', 'status'
+            ));
         }
 }

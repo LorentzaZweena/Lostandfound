@@ -22,6 +22,11 @@ class ItemController extends Controller
         return view('items.index', ['items' => $this->getItems()]);
     }
 
+    public function show(Item $item)
+    {
+        return view('items.item-detail', compact('item'));
+    }
+
     public function create()
     {
         return view('items.create');
@@ -35,6 +40,7 @@ class ItemController extends Controller
             'category' => 'required',
             'location' => 'required',
             'contact_email' => 'required|email',
+            'status' => 'required',
             'image' => 'nullable|image'
         ]);
 
@@ -46,6 +52,33 @@ class ItemController extends Controller
 
         Item::create($data);
 
-        return redirect('/report')->with('success', 'Your report has been submitted successfully.');
+        return redirect('/items')->with('success', 'Your report has been submitted successfully.');
+    }
+
+    public function update(Request $request, Item $item)
+    {
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+            'location' => 'required',
+            'contact_email' => 'required|email',
+            'status' => 'required',
+            'image' => 'nullable|image'
+        ]);
+
+        if($request->hasFile('image')){
+            $data['image'] = $request->file('image')->store('items','public');
+        }
+
+        $item->update($data);
+
+        return back()->with('success', 'Report updated!');
+    }
+
+    public function destroy(Item $item)
+    {
+        $item->delete();
+        return back()->with('success', 'Report deleted!');
     }
 }
