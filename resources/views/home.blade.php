@@ -297,57 +297,192 @@
 
   </div>
 </section>
+<section class="pricing py-5 bg-light-subtle">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-5">Pricing Plan</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="pricing-card p-4 text-start">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle me-2 "></div>
+            <h6 class="fw-semibold mb-0">Free Plan</h6>
+          </div>
+
+          <h3 class="fw-bold">IDR 0</h3>
+          <p class="text-muted small mb-4">
+            Perfect for users who want to report and browse lost items.
+          </p>
+
+          <ul class="list-unstyled feature-list">
+            <li><i class='bx bx-check'></i> Unlimited reports</li>
+            <li><i class='bx bx-check'></i> View all items</li>
+            <li><i class='bx bx-check'></i> Basic support</li>
+          </ul>
+
+          <a href="#" class="btn btn-outline-primary w-100 rounded-pill mt-4">
+            Selected
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="pricing-card active p-4 text-start">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle me-2"></div>
+            <h6 class="fw-semibold mb-0">Priority Plan</h6>
+          </div>
+
+          <h3 class="fw-bold">IDR 15.000</h3>
+          <p class="text-muted small mb-4">
+            Ideal for users who want better visibility and faster responses.
+          </p>
+
+          <ul class="list-unstyled feature-list">
+            <li><i class='bx bx-check'></i> Priority listing</li>
+            <li><i class='bx bx-check'></i> Highlighted posts</li>
+            <li><i class='bx bx-check'></i> Email notifications</li>
+            <li><i class='bx bx-check'></i> Faster support</li>
+          </ul>
+
+          <a href="#" class="btn btn-primary w-100 rounded-pill mt-4">
+            Get Started
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="pricing-card p-4 text-start">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle me-2"></div>
+            <h6 class="fw-semibold mb-0">Premium Plan</h6>
+          </div>
+
+          <h3 class="fw-bold">IDR 50.000</h3>
+          <p class="text-muted small mb-4">
+            APA YA
+          </p>
+
+          <ul class="list-unstyled feature-list">
+            <li><i class='bx bx-check'></i> Bingung</li>
+            <li><i class='bx bx-check'></i> Gak tau</li>
+            <li><i class='bx bx-check'></i> Hm</li>
+            <li><i class='bx bx-check'></i> Help</li>
+          </ul>
+
+          <a href="#" class="btn btn-outline-primary w-100 rounded-pill mt-4">
+            Get Started
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<section class="faq py-5 bg-light">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Frequently Asked Questions</h2>
+      <p class="text-muted">Everything you need to know about Lost&Found</p>
+    </div>
+
+    <div class="accordion" id="faqAccordion">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            How do I report a lost item?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Simply click "Report Item" and fill in the required details such as title, location, and description.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq2">
+            Is this platform free to use?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes! Basic features are free. Premium plans offer additional benefits like priority listing.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#faq3">
+            How do I contact the item owner?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Each report includes contact details so you can directly reach the owner or finder.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 <section class="contact py-5" id="contact">
-<div class="container">
+    <div class="container">
 
-<div class="row g-5 align-items-start">
+    <div class="row g-5 align-items-start">
 
-<div class="col-lg-7">
+    <div class="col-lg-7">
 
-<p class="text-primaryy fw-semibold small">SEND US A MESSAGE</p>
-<h3 class="fw-bold mb-3">
-Seamless Communication, Global Impact.
-</h3>
+    <p class="text-primaryy fw-semibold small">SEND US A MESSAGE</p>
+    <h3 class="fw-bold mb-3">
+      Seamless Communication, Global Impact.
+    </h3>
 
-<p class="text-muted mb-4">
-Need help returning a lost item or reporting something you found?
-Send us a message and our team will assist you.
-</p>
+    <p class="text-muted mb-4">
+      Need help returning a lost item or reporting something you found?
+      Send us a message and our team will assist you.
+    </p>
 
-<form>
-<div class="row g-3">
+    <form>
+      <div class="row g-3">
 
-<div class="col-md-6">
-<input type="text" class="form-control" placeholder="Name">
-</div>
+      <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Name">
+      </div>
 
-<div class="col-md-6">
-<input type="text" class="form-control" placeholder="Company">
-</div>
+      <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Company">
+      </div>
 
-<div class="col-md-6">
-<input type="text" class="form-control" placeholder="Phone">
-</div>
+      <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Phone">
+      </div>
 
-<div class="col-md-6">
-<input type="email" class="form-control" placeholder="Email">
-</div>
+      <div class="col-md-6">
+      <input type="email" class="form-control" placeholder="Email">
+      </div>
 
-<div class="col-md-6">
-<input type="text" class="form-control" placeholder="Subject">
-</div>
+      <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Subject">
+      </div>
 
-<div class="col-md-6">
-<input type="text" class="form-control" placeholder="Topic">
-</div>
+      <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Topic">
+      </div>
 
-<div class="col-12">
-<textarea class="form-control" rows="4" placeholder="Message"></textarea>
+      <div class="col-12">
+      <textarea class="form-control" rows="4" placeholder="Message"></textarea>
 </div>
 
     <div class="col-12">
     <button class="btn btn-primary rounded-pill px-4">
-    Send Message
+      Send Message
     </button>
     </div>
 
