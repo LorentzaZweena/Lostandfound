@@ -18,7 +18,6 @@
 <body>
 
     <div class="container-fluid login-wrapper">
-
         <div class="row h-100">
             <div class="col-lg-6 left-panel">
                 <div class="login-box mx-auto">
@@ -39,19 +38,11 @@
                     </div>
                     @endif
                     <div class="mb-3">
-                        <input type="email"
-                        name="email"
-                        class="form-control"
-                        placeholder="Email"
-                        required>
+                        <input type="email" name="email" class="form-control" placeholder="Email" required>
                     </div>
 
                     <div class="mb-3">
-                        <input type="password"
-                        name="password"
-                        class="form-control"
-                        placeholder="Password"
-                        required>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
                     </div>
 
                     <div class="d-flex justify-content-between mb-4 small">
@@ -77,18 +68,12 @@
                     Don't have an account?
                     <a href="{{ route('register') }}">Create an account</a>
                 </p>
-
             </div>
-
         </div>
 
         <div class="col-lg-6 right-panel">
-
                 <div>
-
-                    <img src="{{ asset('img/login.png') }}"
-                    class="img-fluid mb-4"
-                    style="max-width:360px;">
+                    <img src="{{ asset('img/login.png') }}" class="img-fluid mb-4" style="max-width:360px;">
 
                     <h4 class="fw-bold">
                         Connect with your community
